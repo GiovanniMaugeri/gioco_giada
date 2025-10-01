@@ -25,18 +25,20 @@ var gameStatus = {
     lifes: 3
 }
 
-const maxWrongSize = 6;
-const maxRightSize = 3;
+const maxWrongSize = 7;
+const maxRightSize = 4;
 const rightPath  =[`./assets/right-choices-img/right_img1.gif`,
                     `./assets/right-choices-img/right_img2.jpg`,
-                    `./assets/right-choices-img/right_img3.png`];
+                    `./assets/right-choices-img/right_img3.png`,
+                    `./assets/right-choices-img/right_img4.png`];
 
 const wrongPath = [`./assets/wrong-choices-img/wrong_img1.jpg`,
                     `./assets/wrong-choices-img/wrong_img2.jpg`,
                     `./assets/wrong-choices-img/wrong_img3.jpg`,
                     `./assets/wrong-choices-img/wrong_img4.jpg`,
                     `./assets/wrong-choices-img/wrong_img5.jpg`,
-                    `./assets/wrong-choices-img/wrong_img6.jpg`];
+                    `./assets/wrong-choices-img/wrong_img6.jpg`,
+                    `./assets/wrong-choices-img/wrong_img7.png`];
 
 const rightChoiceMessages = ["Grande!", "Brava!", "Spingere!","Let's goski!","UwU","Slay💅","Daje!","Boia chi molla!","Volo!"];
 const wrongChoiceMessages = ["Opss!", "Ahia!", "Rip!","Capperetti!","Nope!","Mannaggina!","Non benissimo!"];
@@ -71,7 +73,6 @@ window.onload = function() {
 
 
     right_side.onmouseenter = function(e) {
-        
         if(gameStatus.lifes <= 0) return;
         if(mauseIsIn) return;
         mauseIsIn = true;
@@ -79,7 +80,8 @@ window.onload = function() {
             playCorrectSound();
             if(Math.random() < 0.5) {
                 newRightmessage = document.createElement("img");
-                randomImg = Math.floor(Math.random()*maxRightSize)+1;
+                randomImg = Math.floor(Math.random()*(rightPath.length))+1;
+                console.log(randomImg);
                 newRightmessage.src = rightPath[randomImg-1];
                 newRightmessage.style.top = e.clientY + "px";
                 newRightmessage.style.width = "250px";
@@ -93,7 +95,7 @@ window.onload = function() {
             playErrorSound();
             if(Math.random() < 0.5) {
                 newRightmessage = document.createElement("img");
-                randomImg = Math.floor(Math.random()*maxWrongSize)+1;
+                randomImg = Math.floor(Math.random()*(wrongPath.length))+1;
                 newRightmessage.src = wrongPath[randomImg-1];
                 newRightmessage.style.top = e.clientY + "px";
                 newRightmessage.style.width = "250px";
@@ -120,7 +122,7 @@ window.onload = function() {
             playCorrectSound();
             if(Math.random() < 0.5) {
                 newLeftmessage = document.createElement("img");
-                randomImg = Math.floor(Math.random()*maxRightSize)+1;
+                randomImg = Math.floor(Math.random()*(rightPath.length))+1;
                 newLeftmessage.src = rightPath[randomImg-1];
                 newLeftmessage.style.top = e.clientY + "px";
                 newLeftmessage.style.width = "250px";
@@ -135,7 +137,7 @@ window.onload = function() {
             playErrorSound();   
             if(Math.random() < 0.5) {
                 newLeftmessage = document.createElement("img");
-                randomImg = Math.floor(Math.random()*maxWrongSize)+1;
+                randomImg = Math.floor(Math.random()*(wrongPath.length))+1;
                 console.log(randomImg);
                 newLeftmessage.src = wrongPath[randomImg-1];
                 newLeftmessage.style.top = e.clientY + "px";

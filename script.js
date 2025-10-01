@@ -45,6 +45,22 @@ const songsArray = [`./assets/songs/hello_kitty.mp3`,
 const rightChoiceMessages = ["Grande!", "Brava!", "Spingere!","Let's goski!","UwU","Slay💅","Daje!","Boia chi molla!","Volo!"];
 const wrongChoiceMessages = ["Opss!", "Ahia!", "Rip!","Capperetti!","Nope!","Mannaggina!","Non benissimo!"];
 
+fetch('./assets/songs/hello_kitty.mp3')
+  .then(response => {
+    if (!response.ok) { throw new Error('Network response was not ok'); }
+    return cache.put('./assets/songs/hello_kitty.mp3', response);
+  })
+fetch('./assets/songs/maledetta_primavera.mp3')
+  .then(response => {
+    if (!response.ok) { throw new Error('Network response was not ok'); }
+    return cache.put('./assets/songs/maledetta_primavera.mp3', response);
+  })
+fetch('./assets/songs/come_un_pittore.mp3')
+  .then(response => {
+    if (!response.ok) { throw new Error('Network response was not ok'); }
+    return cache.put('./assets/songs/come_un_pittore.mp3', response);
+  })
+
 window.onload = function() {
     
     right_side = document.getElementById("right-side");

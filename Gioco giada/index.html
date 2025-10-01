@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    
+    <main id="canva">
+        <div id="left-side">        </div>
+        <div> 
+            <header> <button id="settings-button"><img src="./assets/gear-svgrepo-com.svg" width="50px" height="50px"></button></header> 
+            <div id="game-container">
+                <div id="lifes-container">
+                    <div class="life"><img src="./assets/full-heart.svg" width="50px" height="50px" alt=""> </div>
+                    <div class="life"><img src="./assets/full-heart.svg" width="50px" height="50px" alt=""> </div>
+                    <div class="life"><img src="./assets/full-heart.svg" width="50px" height="50px" alt=""> </div>
+                </div>
+                <div id="current-word-container">
+                    <h1 > Vai a </h1>
+                    <p id="current-word">Destra</p>
+                </div>
+                <div id="score">0</div>
+                <button id="reset">Restart</button>
+            </div>
+            <div id="settings-container">
+                <div id="difficulty-container">
+                    <h2 class="setting-title">Difficoltà</h2>
+                    <div id="difficulty-choices">
+                        <button id="difficultyEasyButton" class="difficulty-choice active" onclick="setDifficultyEasy()">Facile</button>
+                        <button id="difficultyDajeButton" class="difficulty-choice" onclick="setDifficultyDaje()">Daje</button>
+                        <button id="difficultyMedioButton" class="difficulty-choice" onclick="setDifficultyMedio()">Medio</button>
+                        <button id="difficultyHardButton" class="difficulty-choice" onclick="setDifficultyHard()">Difficile</button>
+                        <button id="difficultyImpossibleButton" class="difficulty-choice" onclick="setDifficultyImpossible()">Impossibile</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="right-side">         </div>
+    </main>
+</body>
+</html>

@@ -14,7 +14,7 @@ var difficultyHardButton;
 var difficultyImpossibleButton;
 var scoreElement;
 var resetButton;
-
+    
 var life_containers = [];
 var currentGameDifficultyMode = null;
 var currentWord = "Destra"; // "Destra" or "Sinistra"
@@ -24,13 +24,11 @@ var gameStatus = {
     score: 0,
     lifes: 3
 }
-
-const maxWrongSize = 7;
-const maxRightSize = 4;
+const songGap = 25;
 const rightPath  =[`./assets/right-choices-img/right_img1.gif`,
                     `./assets/right-choices-img/right_img2.jpg`,
-                    `./assets/right-choices-img/right_img3.png`,
-                    `./assets/right-choices-img/right_img4.png`];
+                    `./assets/right-choices-img/right_img4.png`,
+                    `./assets/right-choices-img/right_img3.png`];
 
 const wrongPath = [`./assets/wrong-choices-img/wrong_img1.jpg`,
                     `./assets/wrong-choices-img/wrong_img2.jpg`,
@@ -39,6 +37,10 @@ const wrongPath = [`./assets/wrong-choices-img/wrong_img1.jpg`,
                     `./assets/wrong-choices-img/wrong_img5.jpg`,
                     `./assets/wrong-choices-img/wrong_img6.jpg`,
                     `./assets/wrong-choices-img/wrong_img7.png`];
+
+const songsArray = [`./assets/songs/hello_kitty.mp3`,
+                    `./assets/songs/maledetta_primavera.mp3`,
+                    `./assets/songs/come_un_pittore.mp3`];
 
 const rightChoiceMessages = ["Grande!", "Brava!", "Spingere!","Let's goski!","UwU","Slay💅","Daje!","Boia chi molla!","Volo!"];
 const wrongChoiceMessages = ["Opss!", "Ahia!", "Rip!","Capperetti!","Nope!","Mannaggina!","Non benissimo!"];
@@ -264,6 +266,11 @@ madeRightChoice = function() {
     gameStatus.score += 1;
     scoreElement.innerText = gameStatus.score;
 
+    if(gameStatus.score % songGap === 0) {
+        playSong(songsArray[(Math.floor(gameStatus.score/songGap)-1) % songsArray.length]);
+    }
+
+
 }
 
 madeWrongChoice = function() {
@@ -366,4 +373,10 @@ showGameHideSettings = function() {
     gameContainer.style.display = "block";
     settingsContainer.style.display = "none";
     settingsButton.style.transform="rotate(0deg)";
+}
+
+playSong = function(path) {
+    var audio = new Audio(path);
+    audio.volume = 0.1;
+    audio.play();
 }

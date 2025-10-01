@@ -63,10 +63,13 @@ window.onload = function() {
     
     life_containers = [...document.getElementsByClassName("life")];
     currentWordElement = document.getElementById("current-word");
-    document.getElementById("settings-button").onclick = function() {
+    settingsButton.onclick = function() {
         toggleSettings();
         
+        
     }
+
+
     right_side.onmouseenter = function(e) {
         
         if(gameStatus.lifes <= 0) return;
@@ -338,4 +341,27 @@ playErrorSound = function(){
     var audio = new Audio('./assets/error_sound.m4a');
     audio.volume = 0.4;
     audio.play();
+}
+
+toggleSettings = function() {
+    if(!setting_open) {
+        canvaElement.style.gridTemplateColumns = "0fr 1fr 0fr";
+        hideGameShowSettings();
+    }
+    else{
+        canvaElement.style.gridTemplateColumns = "1fr 1fr 1fr";
+        showGameHideSettings();
+    }
+    setting_open = !setting_open;
+}
+
+hideGameShowSettings = function() {
+    gameContainer.style.display = "none";
+    settingsContainer.style.display = "block";
+    settingsButton.style.transform="rotate(90deg)";
+}
+showGameHideSettings = function() {
+    gameContainer.style.display = "block";
+    settingsContainer.style.display = "none";
+    settingsButton.style.transform="rotate(0deg)";
 }

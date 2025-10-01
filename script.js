@@ -83,7 +83,6 @@ window.onload = function() {
             if(Math.random() < 0.5) {
                 newRightmessage = document.createElement("img");
                 randomImg = Math.floor(Math.random()*(rightPath.length))+1;
-                console.log(randomImg);
                 newRightmessage.src = rightPath[randomImg-1];
                 newRightmessage.style.top = e.clientY + "px";
                 newRightmessage.style.width = "250px";
@@ -267,6 +266,7 @@ madeRightChoice = function() {
     scoreElement.innerText = gameStatus.score;
 
     if(gameStatus.score % songGap === 0) {
+
         playSong(songsArray[(Math.floor(gameStatus.score/songGap)-1) % songsArray.length]);
     }
 
@@ -377,6 +377,7 @@ showGameHideSettings = function() {
 
 playSong = function(path) {
     var audio = new Audio(path);
+    console.log(path);
     audio.volume = 0.1;
     audio.play();
 }

@@ -39,8 +39,9 @@ const wrongPath = [`./assets/wrong-choices-img/wrong_img1.jpg`,
                     `./assets/wrong-choices-img/wrong_img7.png`];
 
 const songsArray = [`./assets/songs/hello_kitty.mp3`,
-                    `./assets/songs/maledetta_primavera.mp3`,
-                    `./assets/songs/come_un_pittore.mp3`];
+                    `./assets/songs/come_un_pittore.mp3`,
+                    `./assets/songs/diamonds.mp3`,
+                    `./assets/songs/maledetta_primavera.mp3`];
 
 const rightChoiceMessages = ["Grande!", "Brava!", "Spingere!","Let's goski!","UwU","Slay💅","Daje!","Boia chi molla!","Volo!"];
 const wrongChoiceMessages = ["Opss!", "Ahia!", "Rip!","Capperetti!","Nope!","Mannaggina!","Non benissimo!"];
